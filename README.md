@@ -74,15 +74,15 @@ of that into the base.  You can also get the PR number from
 You should probably base your actions/checkout ref on one of these, or an
 ordered combination of them when multiple triggers are used.
 
- * ~Push (branch, branch name): github.ref~
- * Push (branch, specific SHA1): github.event.after
- * ~PR (symbolic): github.ref~
- * PR (specific SHA1): github.event.head.sha
- * PR Target (specific SHA1 required): github.event.head.sha
- * Dispatch (manual, ref): inputs.ref
- * Dispatch (manual, PR): format('refs/pull/{0}/head', inputs.pr)
- * Call (passed from another workflow): inputs.ref
- * Release: github.ref
+ * ~Push (branch, branch name): `${{ github.ref }}`~
+ * Push (branch, specific SHA1): `${{ github.event.after }}`
+ * ~PR (symbolic): `${{ github.ref }}`~
+ * PR (specific SHA1): `${{ github.event.head.sha }}`
+ * PR Target (specific SHA1 required): `${{ github.event.head.sha }}`
+ * Dispatch (manual, ref): `${{ inputs.ref }}`
+ * Dispatch (manual, PR): `${{ format('refs/pull/{0}/head', inputs.pr) }}`
+ * Call (passed from another workflow): `${{ inputs.ref }}`
+ * Release: `${{ github.ref }}`
  * Schedule: default branch name
 
 
@@ -91,9 +91,9 @@ ordered combination of them when multiple triggers are used.
 You should probably set your concurrency group based on one of these, or an
 ordered combination of them when multiple triggers are used.
 
- * Push (branch): ${{ github.workflow }}-${{ github.ref }}
- * PR / PR Target: ${{ github.workflow }}-${{ github.event.number }}
- * Release: ${{ github.workflow }}-${{ 
- * Schedule: ${{ github.workflow }}
+ * Push (branch): `${{ github.workflow }}-${{ github.ref }}`
+ * PR / PR Target: `${{ github.workflow }}-${{ github.event.number }}`
+ * Release: `${{ github.workflow }}-${{ github.ref }}`
+ * Schedule: `${{ github.workflow }}`
  * Dispatch: based on inputs
  * Call: based on inputs
