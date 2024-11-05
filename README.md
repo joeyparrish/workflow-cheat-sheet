@@ -77,8 +77,8 @@ ordered combination of them when multiple triggers are used.
  * ~Push (branch, branch name): `${{ github.ref }}`~
  * Push (branch, specific SHA1): `${{ github.event.after }}`
  * ~PR (symbolic): `${{ github.ref }}`~
- * PR (specific SHA1): `${{ github.event.head.sha }}`
- * PR Target (specific SHA1 required): `${{ github.event.head.sha }}`
+ * PR / PR Target (specific SHA1): `${{ github.event.head.sha }}`
+ * PR / PR Target (merge commit): `refs/pull/${{ github.event.number }}/merge`
  * Dispatch (manual, ref): `${{ inputs.ref }}`
  * Dispatch (manual, PR): `${{ format('refs/pull/{0}/head', inputs.pr) }}`
  * Call (passed from another workflow): `${{ inputs.ref }}`
